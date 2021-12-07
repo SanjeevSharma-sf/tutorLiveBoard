@@ -3,8 +3,7 @@ const socket = require("socket.io");
 
 const app = express(); // initialize and server ready
 app.use(express.static("public")); //ye kya karega ki ye public folder mein jake index.html folder ko khol dega
-const port = 5000;
-//process.env.PORT ||
+const port = process.env.PORT || 5000;
 let server = app.listen(port, () => {
   console.log("Listening to port " + port); // koi request karega to yahan request listen hogi
 });
@@ -24,4 +23,4 @@ io.on("connection", (socket) => {
     io.sockets.emit("redoUndo", data);
   });
 });
-//"start": "node app.js"
+
